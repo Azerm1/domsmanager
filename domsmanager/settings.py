@@ -23,9 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ekjv&g9tzzubp-x)1$h+7ow)ys$3%783dictz4_4%8k4f(!v3%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "azer.pythonanywhere.com",
+]
 
 
 # Application definition
@@ -134,3 +136,6 @@ EMAIL_HOST_USER = 'b3ab28001@smtp-brevo.com'
 import os
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD", "")
 DEFAULT_FROM_EMAIL = 'azerazete1@outlook.com'
+STATIC_ROOT = BASE_DIR / "staticfiles"
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
