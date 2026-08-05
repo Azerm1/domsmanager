@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+<div class="sidebar-header">
+    <div class="logo">
+        <img src="{% static 'logo.png' %}" alt="Logo">
+    </div>
+        <div class="welcome">
+        <span>Gestionner vos Domains <br>et vos Servers</span>
+    </div>
+</div>
+
+        <nav>
+            <a href=""><h3>Dashboard</h3></a>
+            <a href="{% url 'domslist' %}"> <h4>Domains ({{total_domains}})</h4> </a>
+            <a href="{% url 'serverlist' %}"><h4>Servers ({{total_servers}})</h4> </a>
+        </nav>
+    </aside>
+    <main>
+<header>
+    <div class="uppertext">
+        <h3>WELCOME HOME {{username|upper}}</h3>
+    </div>
+    <div class="top-user">
+        <div class="user-details">
+            <span class="username">{{ username }}</span>
+            <span class="separator">|</span>
+            <span class="role">{{ role|upper }}</span>
+        </div>
+        <div class="profile">
+            <a href="{% url 'profil' %}">
+                <img src="{% static 'profile.jpg' %}" alt="Profile">
+            </a>
+        </div>
+        <a href="{% url 'logout' %}" class="logout-btn">
+            Logout
+        </a>
+    </div>
+</header>
+        <section class="stats">
+            <div class="big-card">
+                <h2>Total Domains</h2>
+                <span>{{total_domains}}</span>
+            </div>
+            <div class="big-card">
+                <h2>Total Servers</h2>
+                <span>{{total_servers}}</span>
+            </div>
+            <div class="actions">
+                <a href="{% url 'domsadd' %}"><div class="button add"><button>Add domain</button></div></a>
+                <a href="{% url 'serveradd' %}"><div class="button add"><button>Add server </button></div></a>
+            </div>
+        </section>
+        <section class="status">
+            <div class="status-column">
+                <div class="status-card active">
+                    Active Domains
+                    <strong>{{active_domains}}</strong>
+                </div>
+                <div class="status-card warning">
+                    Warning Domains
+                    <strong>{{warning_domains}}</strong>
+                </div>
+                <div class="status-card expired">
+                    Expired Domains
+                    <strong>{{expired_domains}}</strong>
+                </div>
+            </div>
+            <div class="status-column">
+                <div class="status-card active">
+                    Active Servers
+                    <strong>{{active_servers}}</strong>
+                </div>
+                <div class="status-card warning">
+                    Warning Servers
+                    <strong>{{warning_servers}}</strong>
+                </div>
+                <div class="status-card expired">
+                    Expired Servers
+                    <strong>{{expired_servers}}</strong>
+                </div>
+            </div>
+            <div class="warning-panel">
+                <h3>Latest Warnings ({{close_to_expire_nbre}})</h3>
+                <ul>
+                    {% for i in close_to_expire %}
+                    <li>{{i.object.name}} : {{i.type}}  <span class="badge warning">{{i.days}}</span></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+        <section class="latest">
+            <h2>Latest Expired Domains/Servers</h2>
+            <table>
+                <thead>
+                    <tr> 
+                        <th>Name</th>
+                        <th>Enddate</th>
+                        <th>Status</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        {% for i in leatest_expired %}
+                    <tr>
+                        <td>{{i.object.name}}</td>
+                        <td>{{i.object.enddate}}</td>
+                        <td><span class="badge expired"> {{i.days}}</span></td>
+                        <td>{{i.type}}</td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </section>
+    </main>
+</div>
+</body>
+</html>

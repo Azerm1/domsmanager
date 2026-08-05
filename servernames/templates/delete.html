@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>confirme delete</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'styleadd.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="page">
+    <header class="topbar">
+    <div class="logo">
+        <img src="{% static 'logo.png' %}" alt="Logo">
+    </div>
+        <div class="title">
+            <h1>Add New Server</h1>
+        </div>
+        <div class="top-actions">
+        <div class="profile">
+            <a href="{% url 'profil' %}">
+                <img src="{% static 'profile.jpg' %}" alt="Profile">
+            </a>
+        </div>
+        <a href="{% url 'logout' %}" class="logout-btn">Logout</a>
+        </div>
+    </header>
+    <main class="main-grid">
+        <section class="form-card">
+            <div class="card-header">
+    <h2>Are you sure u want to delete the server <h2>"{{object.name}}" ?</h2></h2>
+    <form method='POST'>
+        {% csrf_token %}
+        <div class="button-row">
+            <button type='submit' class='badge expired'>Delete</button>
+            <a href="{% url 'serverlist' %}" class="cancel-btn">Cancel</a>
+        </div>
+</form>
+</body>

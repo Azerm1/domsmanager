@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADD domain</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+<div class="sidebar-header">
+    <div class="logo">
+        <img src="{% static 'logo.png' %}" alt="Logo">
+    </div>
+        <div class="welcome">
+        <span>Gestionner vos Domains <br>et vos Servers</span>
+    </div>
+</div>
+        <nav>
+            <a href="{% url 'dashboard' %}"><h3>Dashboard</h3></a>
+            <a href="{% url 'domslist' %}"> <h4>Domains ({{total_domains}})</h4> </a>
+            <a href="{% url 'serverlist' %}"><h4>Servers ({{total_servers}})</h4> </a>
+
+        </nav>
+    </aside>
+    <main>
+<header>
+    <div class="header-search">
+        <form class="search-bar" method="GET">
+            <input type="text" name="search" placeholder="Search domain..." value="{{ request.GET.search }}">
+        </form>
+    </div>
+    <div class="top-user">
+        <div class="user-details">
+            <span class="username">{{ username }}</span>
+            <span class="separator">|</span>
+            <span class="role">{{ role|upper }}</span>
+        </div>
+        <div class="profile">
+            <a href="{% url 'profil' %}">
+                <img src="{% static 'profile.jpg' %}" alt="Profile">
+            </a>
+        </div>
+        <a href="{% url 'logout' %}" class="logout-btn">
+            Logout
+        </a>
+    </div>
+</header>
+<section class="list">
+        <div class="uper_list">
+            <h2>list des Domains</h2>
+            <div class="actions">
+                <a href="{% url 'domsadd' %}"><div class="button add"><button>Add domain </button></div></a>
+            </div>
+        </div>
+            <table>
+                <thead>
+                    <tr> 
+                        <th>Name</th>
+                        <th>startdate</th>
+                        <th>Enddate</th>
+                        <th>Status</th>
+                        <th>days</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        {% for i in domsnames%}
+                    <tr>
+                        <td>{{i.name}}</td>
+                        <td>{{i.startdate}}</td>
+                        <td>{{i.enddate}}</td>
+                        {% if i.statut == "expired"%}
+                        <td><span class="badge expired"> {{i.statut}}</span></td>
+                        <td><span class="badge expired">{{i.days}}</span></td>
+                        {% elif i.statut == "active"%}
+                        <td><span class="badge active"> {{i.statut}}</span></td>
+                        <td><span class="badge active">{{i.days}}</span></td>
+                        {% else %}
+                        <td><span class="badge warning"> {{i.statut}}</span></td>
+                        <td><span class="badge warning">{{i.days}}</span></td>
+                        {% endif %}
+                        <td>
+                        <div class='acts'>
+                            <a href="{% url 'domsedit' i.id %}"><div class="edit-btn">edit</div></a>
+                            <a href="{% url 'domsdel' i.id %}"><div class="delete-btn">delete</div></a></td>
+                        </div>
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </section>
+    </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,326 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
+}
+body{
+    margin:0;
+    position:relative;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:url("ChatGPT\ Image\ Jul\ 22\,\ 2026\,\ 11_33_46\ AM.png") center center/cover no-repeat;
+    filter:blur(10px);
+    transform:scale(1.1);
+    z-index:-2;
+}
+
+.container{
+    display:flex;
+    min-height:100vh;
+}
+.sidebar{
+    width:260px;
+    background:#FFFAC3;
+    border-right:1px solid #ddd;
+    padding:25px;
+    box-shadow: 6px 0 25px rgba(0, 0, 0, 0.514);
+}
+.sidebar-header{
+    display: block;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+.profile{
+    width: 60px;
+    height: 60px;
+}
+.profile img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #6C5CE7;
+    box-shadow: 6px 0 25px rgba(0, 0, 0, 0.288);
+
+}
+.sidebar nav{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+.sidebar nav h4{
+    margin-top:0px;
+    color:#926cb1;
+}
+.sidebar nav a{
+    text-decoration:none;
+    color:#444;
+    padding:8px 10px;
+    border-radius:8px;
+}
+.sidebar nav a:hover{
+    background:#c9c1cf;
+}
+.header-search{
+    margin:20px 0;
+}
+
+.search-bar{
+    width:600px;
+    height:45px;
+    display:flex;
+    align-items:center;
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:0 15px;
+}
+
+.search-bar input{
+    flex:1;
+    border:none;
+    outline:none;
+    font-size:16px;
+    background:transparent;
+}
+main{
+    flex:1;
+    padding:30px;
+}
+header{
+    background:#FFFAC3;
+    border-radius:15px;
+    padding:18px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+    box-shadow:0 2px 10px rgba(0, 0, 0, 0.582);
+}
+.stats{
+    display:grid;
+    grid-template-columns:2fr 2fr 1fr;
+    gap:25px;
+}
+.big-card{
+    background:#FFFAC3;
+    border-radius:15px;
+    padding:30px;
+    box-shadow:0 5px 15px rgba(0, 0, 0, 0.397);
+}
+.big-card h2{
+    color:#666;
+    margin-bottom:15px;
+}
+.big-card span{
+    font-size:42px;
+    color:#673AB7;
+    font-weight:bold;
+}
+.actions{
+    display:flex;
+    flex-direction:column;
+    gap: 20px;
+    padding:18px 30px;
+    width: 180px;
+}
+.actions button{
+    padding:15px;
+    background:#FFFAC3;
+    color:#ab79d4;
+    border:none;
+    border-radius:7px;
+    cursor:pointer;
+    width: 180px;
+    height: 45px;
+    font-weight:bold;
+    font-size: large;
+    line-height: 10px;
+    box-shadow: 6px 0 25px rgba(0, 0, 0, 0.329);
+    justify-self: center;
+
+}
+.status{
+    margin-top:30px;
+    display:grid;
+    grid-template-columns:1fr 1fr 300px;
+    gap:25px;
+}
+.status-column{
+   display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+.status-card{
+    background:#FFFAC3;
+    border-radius:15px;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-weight:600;
+    box-shadow:0 3px 10px rgba(0, 0, 0, 0.178);
+}
+.active{
+    border-left:7px solid #2ECC71;
+}
+.warning{
+    border-left:7px solid #F1C40F;
+}
+.expired{
+    border-left:7px solid #E74C3C;
+}
+.warning-panel{
+    background:#FFFAC3;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 3px 10px rgba(0,0,0,.05);
+}
+.warning-panel ul{
+    margin-top:20px;
+    list-style:none;
+}
+.warning-panel li{
+    margin-bottom:12px;
+}
+.latest{
+    margin-top:35px;
+    background:#FFFAC3;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 3px 10px rgba(0,0,0,.05);
+}
+table{   
+    width:100%;
+    margin-top:20px;
+}
+th{
+    text-align:left;
+    border-radius: 15px;
+    padding:15px;
+    background:#AC92C1;
+    color:#FFFAC3;
+    box-shadow: 6px 0 25px rgba(0, 0, 0, 0.219);
+}
+td{
+    padding:15px;
+    border-bottom:1px solid #eee;
+    background-color: #FFFAC3;
+    box-shadow: 6px 5px 25px rgba(0, 0, 0, 0.219);
+
+}
+.badge{
+    padding:6px 14px;
+    border-radius:20px;
+    color:white;
+    font-size:13px;
+}
+.badge.active{
+    background:#2ECC71;
+    border:none;
+}
+.badge.warning{
+    background:#F1C40F;
+    color:black;
+    border:none;
+}
+.badge.expired{
+    background:#E74C3C;
+    border:none;
+}
+.top-user{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+.user-details{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+}
+.username{
+    font-weight: 600;
+    color: #2D3436;
+}
+.separator{
+    color: #999;
+}
+.role{
+    color: #6C5CE7;
+    font-weight: 500;
+}
+.logout-btn{
+    background: #E74C3C;
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 500;
+    box-shadow: 6px 1px 25px rgba(0, 0, 0, 0.219);
+}
+.logout-btn:hover{
+    background: #C0392B;
+}
+.welcome span{
+    color: #615e5e;
+    display: block;
+    font-weight: bolder;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 1.2;
+    margin-top: 2px;
+    }
+.uper_list{
+    padding:18px 30px;
+    justify-content:space-between;
+    margin-bottom:-30px;
+    display:flex;
+    align-items:center;
+}
+.edit-btn{
+    background: #ac92c1;
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 500;
+    box-shadow: 6px 1px 25px rgba(0, 0, 0, 0.219);
+}
+.edit-btn:hover{
+    background: rgba(187, 9, 214, 0.735);
+}
+.delete-btn{
+    background: #E74C3C;
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 500;
+    box-shadow: 6px 1px 25px rgba(0, 0, 0, 0.219);
+}
+.delete-btn:hover{
+    background: #C0392B;
+}
+.acts{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    width: 5px;
+}

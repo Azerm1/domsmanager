@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADD domain</title>
+    <link rel="stylesheet" href="{% static 'styleadd.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="page">
+    <header class="topbar">
+    <div class="logo">
+        <img src="{% static 'logo.png' %}" alt="Logo">
+    </div>
+        <div class="title">
+            <h1>ADD NEW DOMAIN</h1>
+        </div>
+        <div class="top-actions">
+        <div class="profile">
+            <a href="{% url 'profil' %}">
+                <img src="{% static 'profile.jpg' %}" alt="Profile">
+            </a>
+        </div>
+        <a href="{% url 'logout' %}" class="logout-btn">Logout</a>
+        </div>
+    </header>
+    <main class="main-grid">
+        <section class="form-card">
+            <div class="card-header">
+                <h2>Domain Informations</h2>
+                <p>Enter the information below</p>
+            </div>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>Domain Name</label>
+                    {{ form.name }}
+                </div>
+                <div class="form-group">
+                    <label>Registration Date</label>
+                    {{ form.startdate }}
+                </div>
+                <div class="form-group">
+                    <label>Expiration Date</label>
+                    {{ form.enddate }}
+                </div>
+                <div class="button-row">
+                    <a href="{% url 'dashboard' %}" class="cancel-btn">Cancel</a>
+                    <button class="add-btn" type="submit" >Add</button>
+                </div>
+            </form>
+        </section>
+    </main>
+</div>
+</body>
+</html>
