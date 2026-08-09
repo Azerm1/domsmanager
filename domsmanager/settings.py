@@ -91,10 +91,9 @@ WSGI_APPLICATION = 'domsmanager.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    "default": dj_database_url.config(
+        default="sqlite:///" + str(BASE_DIR / "db.sqlite3")
+    )
 }
 
 
@@ -149,3 +148,4 @@ DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL")
 STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+import dj_database_url
