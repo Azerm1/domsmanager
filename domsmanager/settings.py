@@ -34,7 +34,9 @@ SECRET_KEY = 'django-insecure-ekjv&g9tzzubp-x)1$h+7ow)ys$3%783dictz4_4%8k4f(!v3%
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "azer.pythonanywhere.com",
+    "localhost",
+    "127.0.0.1",
+    ".vercel.app",
 ]
 
 
