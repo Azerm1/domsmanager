@@ -5,6 +5,7 @@ Django==6.0.7
 psycopg==3.3.4
 psycopg-binary==3.3.4
 python-dateutil==2.9.0.post0
+python-dotenv==1.2.2
 sib-api-v3-sdk==7.6.0
 six==1.17.0
 sqlparse==0.5.5
