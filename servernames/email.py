@@ -51,9 +51,7 @@ def send_notification(server, days):
 
     email.attach(logo)
 
-    result = email.send()
-    print("EMAIL SEND RESULT:", result)
-    print("EMAIL TO:", admin.email)
+    email.send()
 
     Notification.objects.create(
         server=server,
