@@ -324,3 +324,473 @@ td{
     gap:20px;
     width: 5px;
 }
+/*changes
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+/* ---------- Large screens ---------- */
+
+@media (min-width: 1400px) {
+    main {
+        padding: 35px 45px;
+    }
+
+    .stats {
+        grid-template-columns: 2fr 2fr 1fr;
+    }
+
+    .status {
+        grid-template-columns: 1fr 1fr 300px;
+    }
+}
+
+
+/* =========================================================
+   TABLETS / SMALL LAPTOPS
+   <= 1100px
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .sidebar {
+        width: 220px;
+        padding: 20px;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    header {
+        padding: 15px 20px;
+    }
+
+    .search-bar {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+    }
+
+    .big-card {
+        padding: 22px;
+    }
+
+    .big-card span {
+        font-size: 36px;
+    }
+
+    .status {
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+    }
+
+    .warning-panel {
+        grid-column: 1 / -1;
+    }
+
+    .actions {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .actions button {
+        width: 100%;
+    }
+
+    .latest {
+        padding: 20px;
+    }
+
+    th,
+    td {
+        padding: 12px 10px;
+    }
+}
+
+
+/* =========================================================
+   TABLETS / LARGE PHONES
+   <= 768px
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* Main layout */
+
+    .container {
+        flex-direction: column;
+    }
+
+    /* Sidebar becomes top section */
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+        padding: 15px 20px;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .sidebar-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+
+    .logo {
+        justify-content: flex-start;
+    }
+
+    .logo img {
+        max-width: 180px;
+        max-height: 70px;
+    }
+
+    .profile {
+        width: 50px;
+        height: 50px;
+    }
+
+    .sidebar nav {
+        gap: 5px;
+    }
+
+    .sidebar nav a {
+        padding: 10px;
+    }
+
+    /* Main */
+
+    main {
+        width: 100%;
+        padding: 15px;
+    }
+
+    /* Header */
+
+    header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .header-search {
+        margin: 5px 0;
+        width: 100%;
+    }
+
+    .search-bar {
+        width: 100%;
+        max-width: none;
+    }
+
+    .top-user {
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    /* Statistics */
+
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .big-card {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .big-card span {
+        font-size: 34px;
+    }
+
+    /* Actions */
+
+    .actions {
+        width: 100%;
+        padding: 0;
+        gap: 10px;
+    }
+
+    .actions button {
+        width: 100%;
+        height: 45px;
+    }
+
+    /* Status */
+
+    .status {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .status-column {
+        width: 100%;
+    }
+
+    .warning-panel {
+        grid-column: auto;
+    }
+
+    /* Latest */
+
+    .latest {
+        margin-top: 20px;
+        padding: 15px;
+        overflow: hidden;
+    }
+
+    /* Table */
+
+    .latest table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    /* Upper list */
+
+    .uper_list {
+        padding: 10px 0;
+        margin-bottom: -10px;
+        gap: 10px;
+    }
+
+    /* Buttons */
+
+    .edit-btn,
+    .delete-btn {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .acts {
+        gap: 8px;
+        width: auto;
+    }
+}
+
+
+/* =========================================================
+   PHONES
+   <= 480px
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    /* Sidebar */
+
+    .sidebar {
+        padding: 12px 15px;
+    }
+
+    .logo img {
+        max-width: 150px;
+    }
+
+    .profile {
+        width: 45px;
+        height: 45px;
+    }
+
+    .sidebar nav {
+        gap: 3px;
+    }
+
+    .sidebar nav a {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .sidebar nav h4 {
+        font-size: 13px;
+    }
+
+    /* Main */
+
+    main {
+        padding: 10px;
+    }
+
+    /* Header */
+
+    header {
+        border-radius: 10px;
+        padding: 12px;
+        margin-bottom: 15px;
+    }
+
+    .top-user {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .user-details {
+        justify-content: center;
+        font-size: 14px;
+    }
+
+    .logout-btn {
+        text-align: center;
+        padding: 9px;
+    }
+
+    /* Search */
+
+    .search-bar {
+        height: 42px;
+        padding: 0 10px;
+    }
+
+    .search-bar input {
+        font-size: 14px;
+        min-width: 0;
+    }
+
+    /* Cards */
+
+    .big-card {
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .big-card h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .big-card span {
+        font-size: 30px;
+    }
+
+    /* Status */
+
+    .status-card {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    .status-card span {
+        font-size: 14px;
+    }
+
+    .warning-panel {
+        padding: 15px;
+    }
+
+    /* Latest */
+
+    .latest {
+        padding: 12px;
+        border-radius: 12px;
+    }
+
+    .latest h2 {
+        font-size: 18px;
+    }
+
+    /* Table */
+
+    th,
+    td {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .badge {
+        padding: 5px 9px;
+        font-size: 11px;
+    }
+
+    /* Edit / Delete */
+
+    .uper_list {
+        flex-direction: column;
+        align-items: stretch;
+        margin-bottom: 0;
+    }
+
+    .acts {
+        width: 100%;
+        justify-content: stretch;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        flex: 1;
+        text-align: center;
+        padding: 9px;
+    }
+
+    /* Welcome */
+
+    .welcome span {
+        font-size: 0.85rem;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   <= 360px
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    main {
+        padding: 8px;
+    }
+
+    .sidebar {
+        padding: 10px;
+    }
+
+    .logo img {
+        max-width: 130px;
+    }
+
+    .profile {
+        width: 40px;
+        height: 40px;
+    }
+
+    .big-card span {
+        font-size: 26px;
+    }
+
+    .big-card h2 {
+        font-size: 16px;
+    }
+
+    .status-card {
+        padding: 12px;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        font-size: 12px;
+    }
+}

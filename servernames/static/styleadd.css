@@ -252,22 +252,316 @@ textarea:focus{
     color:#888;
     line-height:1.6;
 }
-@media(max-width:1200px){
-    .main-grid{
-        grid-template-columns:1fr;
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+/* ---------- Tablets / small laptops ---------- */
+
+@media (max-width: 1200px) {
+
+    .page {
+        width: 94%;
+        margin: 25px auto;
     }
-    .history-card{
-        min-height:auto;
+
+    .main-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .history-card {
+        min-height: auto;
+    }
+
+    .form-card,
+    .history-card {
+        padding: 30px;
     }
 }
-@media(max-width:900px){
-    .topbar{
-        flex-direction:column;
-        gap:20px;
-        text-align:center;
+
+
+/* =========================================================
+   TABLETS
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .page {
+        width: 94%;
+        margin: 20px auto;
     }
-    .top-actions{
-        justify-content:center;
+
+    .topbar {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        padding: 20px 25px;
+    }
+
+    .top-actions {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .logout-btn {
+        padding: 14px 25px;
+    }
+
+    .form-card,
+    .history-card {
+        padding: 25px;
+    }
+
+    .card-header h2 {
+        font-size: 25px;
+    }
+
+    .input,
+    input[type="date"],
+    input[type="email"],
+    input[type="number"],
+    select,
+    textarea {
+        height: 52px;
+    }
+}
+
+
+/* =========================================================
+   PHONES
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .page {
+        width: calc(100% - 20px);
+        margin: 10px auto;
+    }
+
+    /* ---------- Top bar ---------- */
+
+    .topbar {
+        width: 100%;
+        padding: 15px;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        gap: 15px;
+    }
+
+    .logo {
+        width: 55px;
+        height: 55px;
+    }
+
+    .logo img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .profile {
+        width: 50px;
+        height: 50px;
+    }
+
+    .top-actions {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .logout-btn {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 18px;
+        font-size: 14px;
+    }
+
+
+    /* ---------- Cards ---------- */
+
+    .form-card,
+    .history-card {
+        padding: 18px;
+        border-radius: 12px;
+    }
+
+    .card-header {
+        margin-bottom: 20px;
+    }
+
+    .card-header h2 {
+        font-size: 21px;
+        line-height: 1.3;
+    }
+
+    .card-header p {
+        font-size: 13px;
+    }
+
+
+    /* ---------- Form ---------- */
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    .form-group label {
+        font-size: 14px;
+        margin-bottom: 7px;
+    }
+
+    .input,
+    input[type="date"],
+    input[type="email"],
+    input[type="number"],
+    select,
+    textarea {
+        height: 48px;
+        padding: 0 13px;
+        border-radius: 10px;
+        font-size: 14px;
+        max-width: 100%;
+    }
+
+    textarea {
+        height: auto;
+        min-height: 100px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+
+    /* ---------- Buttons ---------- */
+
+    .button-row {
+        flex-direction: column-reverse;
+        gap: 10px;
+        margin-top: 25px;
+    }
+
+    .cancel-btn,
+    .add-btn {
+        width: 100%;
+        text-align: center;
+        padding: 12px 20px;
+    }
+
+
+    /* ---------- History ---------- */
+
+    .history-card {
+        min-height: auto;
+    }
+
+    .history-item {
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 12px;
+    }
+
+    .history-name {
+        font-size: 16px;
+        margin-bottom: 15px;
+
+        /* Prevent long domain names from breaking the page */
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .history-info {
+        gap: 10px;
+    }
+
+    .info-row {
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .info-row span {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .info-row span:last-child {
+        text-align: right;
+    }
+
+    .status {
+        margin-top: 15px;
+        padding: 7px 14px;
+        font-size: 12px;
+    }
+
+
+    /* ---------- Empty history ---------- */
+
+    .empty-history {
+        padding: 30px 10px;
+    }
+
+    .empty-history h3 {
+        font-size: 20px;
+    }
+
+    .empty-history p {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .page {
+        width: calc(100% - 12px);
+        margin: 6px auto;
+    }
+
+    .topbar {
+        padding: 12px;
+        border-radius: 10px;
+    }
+
+    .form-card,
+    .history-card {
+        padding: 14px;
+        border-radius: 10px;
+    }
+
+    .card-header h2 {
+        font-size: 19px;
+    }
+
+    .card-header p {
+        font-size: 12px;
+    }
+
+    .input,
+    input[type="date"],
+    input[type="email"],
+    input[type="number"],
+    select,
+    textarea {
+        font-size: 13px;
+    }
+
+    .history-item {
+        padding: 12px;
+    }
+
+    .history-name {
+        font-size: 15px;
+    }
+
+    .info-row {
+        font-size: 13px;
     }
 }
 .profile{
@@ -288,7 +582,7 @@ textarea:focus{
 .logo img{
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 .title{
     color: #8f54be;
