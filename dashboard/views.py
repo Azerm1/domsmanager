@@ -171,3 +171,23 @@ def dashboard_context(request):
         "leatest_expired":leatest_expired,
         'expired_list':expired_list}
     return context
+
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+
+from domsnames.services import check_domain
+from servernames.services import check_server
+
+
+@csrf_exempt
+def cron_check_expirations(request):
+    if request.method != "GET":
+        return JsonResponse({"error": "Method not allowed"}, status=405)
+
+    check_domain()
+    check_server()
+
+    return JsonResponse({
+        "status": "success",
+        "message": "Domains and servers checked"
+    })
