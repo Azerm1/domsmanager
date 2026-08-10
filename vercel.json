@@ -2,7 +2,7 @@
   "crons": [
     {
       "path": "/cron/check-expirations/",
-      "schedule": "47 11 * * *"
+      "schedule": "52 10 * * *"
     }
   ]
 }
